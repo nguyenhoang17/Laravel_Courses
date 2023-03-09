@@ -1,0 +1,67 @@
+
+.post {
+    height: 700px;
+    padding-top: 20px;
+}
+
+#kt_content_container > div > div.card-body.py-4{
+    overflow: auto !important;
+}
+#courses_info,
+table.dataTable>thead .sorting_desc:after,
+table.dataTable>thead .sorting_asc:after{
+    display: none !important;
+}
+table.dataTable>thead>tr>th:not(.sorting_disabled) {
+    padding-right: 15px !important;
+}
+table.dataTable thead th, table.dataTable thead td, #courses > tbody > tr > td{
+    border-bottom:1px solid #eff2f5 !important;
+}
+#courses > tbody > tr > td{
+    color: #7e8299!important;
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.25rem !important;
+}
+#courses_length{
+    color: #7e8299!important;
+}
+#courses > tbody > tr > td:nth-child(9),
+#courses > tbody > tr > td:nth-child(9){
+    text-align: center !important;
+}
+table.dataTable tbody th, table.dataTable tbody td {
+    padding: 8px 18px !important;
+}
+#kt_content_container > div.card{
+    height: 703px !important;
+}
+#kt_content_container > div.card > div.card-header.border-0.pt-6{
+    margin-bottom: 20px !important;
+}
+
+.outer {
+    overflow-y: auto;
+    max-height: 183px;
+}
+
+.outer {
+    width: 100%;
+    -layout: fixed;
+}
+
+.outer th {
+    text-align: left;
+    top: 0;
+    position: sticky;
+}
+#kt_modal_1 > div > div > div.modal-body > div > table > thead > tr > th{
+    background-color: #ccc;
+    z-index: 1000;
+    padding: 10px !important;
+    font-weight: 700;
+}
+#tbody_order_course > tr > td{
+    padding: 8px 10px;
+}
+

@@ -1,0 +1,9 @@
+.dataTables_length label{
+    display: flex;
+    width: 200px;
+    line-height: 30px;
+}
+.dataTables_length label select{
+    width: 40%;
+    margin: 0 5px;
+}

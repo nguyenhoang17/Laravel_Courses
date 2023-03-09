@@ -1,0 +1,41 @@
+
+.post {
+    height: 700px;
+    padding-top: 20px;
+}
+#users > tbody > tr > td:nth-child(5),
+#users > tbody > tr > td:nth-child(6){
+    text-align: center !important;
+}
+.table>:not(caption)>*>*{
+    padding:12px 12px !important;
+}
+.img-user{
+    width:100%;
+    height: 100px;
+    object-fit: cover;
+}
+#users,
+table.dataTable>thead .sorting_desc:after,
+table.dataTable>thead .sorting_asc:after{
+    display: block !important;
+}
+table.dataTable>thead>tr>th:not(.sorting_disabled) {
+    padding-right: 15px !important;
+}
+table.dataTable thead th, table.dataTable thead td, #users > tbody > tr > td{
+    border-bottom:1px solid #eff2f5 !important;
+}
+#users > tbody > tr > td{
+    color: #7e8299!important;
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.25rem !important;
+}
+#users_length{
+    color: #7e8299!important;
+}
+.list-course{
+    max-height: 180px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}

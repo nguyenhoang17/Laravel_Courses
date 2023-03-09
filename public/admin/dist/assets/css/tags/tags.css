@@ -1,0 +1,46 @@
+#kt_content_container > div > div.card-body.py-4
+{
+    overflow:scroll;
+}
+.ss {
+    display:flex;
+    justify-content:center;
+}
+#kt_content_container > div > div.card-body.py-4{
+    overflow:scroll;
+}
+#kt_table_users_filter > label{
+    display:none;
+}
+.filter{
+    margin-left: 55%;
+}
+.text-end{
+    float: left;
+}
+#kt_ecommerce_category_table_length{
+    display: none;
+}
+td{
+    text-align: center !important;
+}
+th{
+    text-align: center !important;
+}
+.post {
+    height: 700px;
+    padding-top: 20px;
+}
+.table.gy-5 td{
+    padding: 10px !important;
+    justify-content: center;
+}
+tbody > tr > td{
+    color: #7e8299!important;
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.25rem !important;
+}
+tbody > tr > td:nth-child(13){
+    text-align: center !important;
+}
+

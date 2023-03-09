@@ -1,0 +1,37 @@
+.post {
+    height: 700px;
+    padding-top: 20px;
+}
+#staffs > tbody > tr > td:nth-child(7){
+    text-align: center !important;
+}
+#staffs > tbody > tr > td:nth-child(6),
+#staffs > tbody > tr > td:nth-child(7){
+    text-align: center !important;
+}
+table.dataTable>thead .sorting_desc:after,
+table.dataTable>thead .sorting_asc:after{
+    display: none !important;
+}
+table.dataTable>thead>tr>th:not(.sorting_disabled) {
+    padding-right: 15px !important;
+}
+table.dataTable thead th, table.dataTable thead td, #staffs > tbody > tr > td{
+    border-bottom:1px solid #eff2f5 !important;
+}
+#staffs > tbody > tr > td{
+    color: #7e8299!important;
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.25rem !important;
+}
+#staffs_length{
+    color: #7e8299!important;
+}
+table.dataTable tbody th, table.dataTable tbody td {
+    padding: 8px 18px !important;
+}
+.staff_course_manager{
+    max-height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
