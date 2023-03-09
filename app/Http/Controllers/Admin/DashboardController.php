@@ -45,7 +45,6 @@ class DashboardController extends Controller
                 'price'=>$val->price,
             );
         }
-        // dd($chart_data);
         echo $data = json_encode($chart_data);
     }
 }

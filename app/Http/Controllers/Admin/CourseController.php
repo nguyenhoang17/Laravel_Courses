@@ -210,15 +210,6 @@ class CourseController extends Controller
                         $course_key = $data['key'];
                     }
                 }
-//                if($data['type'] == Course::TYPE_ONDEMAND){
-//                    $checkVideo = 'required';
-//                    if($request->hasFile('video')){
-//                        $disk = 'public';
-//                        $name = $data['video']->getClientOriginalName();
-//                        $path = Storage::disk($disk)->putFileAs('courses/videos',$data['video'],$name);
-//                        $course_video = $path;
-//                    }
-//                }
             }
             if($this->validateStore($request,$checkVideo,$checkKey) !== true){
                 return redirect()->route('courses-manager.create')->withErrors($this->validateStore($request,$checkVideo,$checkKey))->withInput();
@@ -228,9 +219,6 @@ class CourseController extends Controller
             if ($course_key!==null){
                 $course->key = $course_key;
             }
-//            if($course_video!==null){
-//                $course->video = $course_video;
-//            }
             $course->name = $data['name'];
             $course->category_id = $data['category_id'];
             $course->staff_id = $data['staff_id'];
@@ -253,24 +241,6 @@ class CourseController extends Controller
             }
             $course->save();
             $course->tags()->attach($request->get('tags'));
-//            if($request->hasFile('files')){
-//                $files = $request->file('files');
-//                $index = 0;
-//                foreach($request->file('files') as $file){
-//                    $disk = 'public';
-//                    $nameFile = $files[$index]->getClientOriginalName();
-//                    $pathFile = Storage::disk($disk)->putFileAs('courses/files',$files[$index],$nameFile);
-//                    $file = new File();
-//                    $file-> name = $nameFile;
-//                    $file->path= $pathFile;
-//                    $file->course_id = $course->id;
-//                    $file -> save();
-//                    if(count($files) > 1)
-//                    {
-//                        $index ++;
-//                    }
-//                }
-//            }
             $request->session()->flash('success', 'Tạo khoá học thành công');
             DB::commit();
             return redirect()->route('courses-manager.index');
@@ -402,14 +372,6 @@ class CourseController extends Controller
                             $course_key = $data['key'];
                         }
                     }
-//                    if($data['type'] == Course::TYPE_ONDEMAND){
-//                        if($request->hasFile('video')){
-//                            $disk = 'public';
-//                            $name = $data['video']->getClientOriginalName();
-//                            $path = Storage::disk($disk)->putFileAs('courses/videos',$data['video'],$name);
-//                            $course_video = $path;
-//                        }
-//                    }
                 }
                 if($this->validateUpdate($request, $id, $checkKey,$data['type'],$typeOrdemand) !== true){
                     return redirect()->route('courses-manager.edit', $id)->withErrors($this->validateUpdate($request, $id, $checkKey,$data['type']))->withInput();
@@ -419,10 +381,6 @@ class CourseController extends Controller
                     $course->key = $course_key;
                     $course->video = null;
                 }
-//                if($course_video!==null){
-//                    $course->video = $course_video;
-//                    $course->key = null;
-//                }
                 $course->name = $data['name'];
                 $course->category_id = $data['category_id'];
                 $course->staff_id = $data['staff_id'];
@@ -443,32 +401,6 @@ class CourseController extends Controller
                 }
                 $course->save();
                 $course->tags()->sync($request->get('tags'));
-//                if($request->hasFile('files')){
-//                    $files = $request->file('files');
-//                    $index = 0;
-//                    foreach($request->file('files') as $file){
-//                        $disk = 'public';
-//                        $nameFile = $files[$index]->getClientOriginalName();
-//                        $pathFile = Storage::disk($disk)->putFileAs('courses/files',$files[$index],$nameFile);
-//                        $file = new File();
-//                        $file-> name = $nameFile;
-//                        $file->path= $pathFile;
-//                        $file->course_id = $course->id;
-//                        $file -> save();
-//                        if(count($files) > 1)
-//                        {
-//                            $index ++;
-//                        }
-//                    }
-//                }
-//                $deleteFile = $request->delete_file;
-//                if (!empty($deleteFile)) {
-//                    foreach ($deleteFile as $dete) {
-//                        $fileDelete = File::find($dete);
-//                        Storage::disk('public')->delete($fileDelete->path);
-//                        $fileDelete->delete();
-//                    }
-//                }
                 $request->session()->flash('success', 'Cập nhật khoá học thành công');
             }
 
@@ -510,11 +442,6 @@ class CourseController extends Controller
         }
 
     }
-
-//    public function download_file($id){
-//        $file = File::findOrFail($id);
-//        return Storage::disk('public')->download('courses/files/'.$file->name);
-//    }
 
     public function publishCourse($id){
         $check = 0;
@@ -563,13 +490,9 @@ class CourseController extends Controller
             'start_time' => 'required|after:' . Carbon::now(),
             'end_time' => ['required', 'after:start_time'],
             'price' => ['required', 'numeric'],
-//            'files' => ['required','max:3'],
-//            'files.*' => ['mimes:pdf'],
             'tags' => ['required'],
-//            'video' => ['mimes:mp4,ogx,oga,ogv,ogg,webm',$checkVideo],
             'key' => [$checkKey],
         ], $messages = [
-//                'files.max' => 'Chỉ được chọn 3 file tài liệu',
         ]);
         if ($validator->fails()) {
             return $validator->errors();
@@ -588,12 +511,8 @@ class CourseController extends Controller
             'end_time' => ['required', 'after:start_time'],
             'price' => ['required', 'numeric'],
             'tags' => ['required'],
-//            'files' => ['max:3'],
-//            'files.*' => ['mimes:pdf'],
-//            'video' => [((int)$type === Course::TYPE_ONDEMAND && (int)$typeOrdemand!== Course::TYPE_ONDEMAND )? 'required':'','mimes:mp4,ogx,oga,ogv,ogg,webm'],
             'key' => [$checkKey]
         ], $messages = [
-//            'files.max' => 'Chỉ được chọn 3 file tài liệu',
         ]);
         if ($validator->fails()) {
             return $validator->errors();
